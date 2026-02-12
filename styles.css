@@ -130,8 +130,8 @@ ol {
   pointer-events: auto;
   position: fixed;
   /* Keep nav accessible */
-  top: calc(var(--space-4) + 6px);
-  /* Slightly lowered to align with bold logo baseline/center */
+  top: calc(var(--space-4) + 11px);
+  /* Adjusted for larger logo alignment */
   right: var(--space-6);
   display: flex;
   gap: var(--space-4);
@@ -164,8 +164,8 @@ ol {
 .logo.scrolled {
   position: fixed;
   /* Snap to fixed when scrolled */
-  font-size: 1.5625rem;
-  /* Navbar Size (+25%) */
+  font-size: 2.25rem;
+  /* Logo Size in sticky state - Increased */
   font-weight: 800;
   /* Kept bolder for sticky state */
   top: var(--space-4);
@@ -190,8 +190,8 @@ ol {
   top: var(--space-4);
   left: var(--space-6);
   margin-top: 0;
-  transform: translateY(6px);
-  /* Align with nav links */
+  transform: translateY(11px);
+  /* Align with nav links and larger logo */
 }
 
 .filter-pill {
