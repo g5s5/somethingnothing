@@ -111,9 +111,9 @@ ol {
 }
 
 /* ---------- Header ---------- */
-/* ---------- Header ---------- */
 .header {
-  position: fixed;
+  position: absolute;
+  /* Changed from fixed so logo scrolls with page */
   top: 0;
   left: 0;
   width: 100%;
@@ -128,6 +128,10 @@ ol {
 
 .header-nav {
   pointer-events: auto;
+  position: fixed;
+  /* Keep nav accessible */
+  top: var(--space-4);
+  right: var(--space-6);
   display: flex;
   gap: var(--space-4);
 }
@@ -156,6 +160,8 @@ ol {
 
 /* Scrolled State (Top Left) */
 .logo.scrolled {
+  position: fixed;
+  /* Snap to fixed when scrolled */
   font-size: var(--text-base);
   /* Navbar Size */
   top: var(--space-4);
