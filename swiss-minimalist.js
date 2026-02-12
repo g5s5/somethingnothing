@@ -175,38 +175,66 @@ document.addEventListener('DOMContentLoaded', () => {
     function makeSwirlPath(w, h) {
       const cx = w / 2, cy = h / 2;
 
-      // Generate 6-9 points spread around the card
-      // (the transparent image will naturally mask the center)
+      // Generate 5-12 points spread around the card
       const pts = [];
-      const n = 6 + Math.floor(Math.random() * 4);
+      const n = 5 + Math.floor(Math.random() * 8); // More variance in complexity
+
+      // Start with a random angle offset
+      const startAngle = Math.random() * Math.PI * 2;
+
       for (let i = 0; i < n; i++) {
-        // Distribute around card — bias toward edges but allow mid-range
-        const angle = (i / n) * Math.PI * 2 + r(-0.4, 0.4);
-        const radius = r(0.35, 0.55) * Math.min(w, h);
-        const x = cx + Math.cos(angle) * radius * (w / Math.min(w, h));
-        const y = cy + Math.sin(angle) * radius * (h / Math.min(w, h));
+        // Distribute roughly around circle but with chaos
+        // Use accumulated angle to allow spirals (> 360deg) if we wanted, 
+        // but simple sorted angular distribution ensures a clean loop.
+        const angle = startAngle + (i / n) * Math.PI * 2 + r(-0.8, 0.8);
+
+        // Vary radius significantly: from hugging the center (hidden) to edges
+        // 0.3 = inner (near product), 0.85 = outer (near edge)
+        const radius = r(0.35, 0.85) * Math.min(w, h);
+
+        let x = cx + Math.cos(angle) * radius * (w / Math.min(w, h));
+        let y = cy + Math.sin(angle) * radius * (h / Math.min(w, h));
+
+        // Add random wobble to xy
+        x += r(-w * 0.1, w * 0.1);
+        y += r(-h * 0.1, h * 0.1);
+
         pts.push({
-          x: Math.max(-w * 0.05, Math.min(w * 1.05, x)),
-          y: Math.max(-h * 0.05, Math.min(h * 1.05, y)),
+          x: Math.max(-w * 0.1, Math.min(w * 1.1, x)),
+          y: Math.max(-h * 0.1, Math.min(h * 1.1, y)),
           a: angle
         });
       }
 
-      // Sort by angle for cohesive flow
+      // Sort by angle for cohesive loop flow
+      // We normalize angles to 0-2PI relative to start for proper sorting if needed,
+      // but simple atan2 works for a single loop.
+      pts.forEach(p => p.a = Math.atan2(p.y - cy, p.x - cx));
       pts.sort((a, b) => a.a - b.a);
 
-      // Build cubic bezier path
+      // Build cubic bezier path with wilder control points
       let d = `M${pts[0].x.toFixed(1)},${pts[0].y.toFixed(1)}`;
       for (let i = 1; i < pts.length; i++) {
         const p = pts[i - 1], q = pts[i];
         const dx = q.x - p.x, dy = q.y - p.y;
-        const sw = r(-0.5, 0.5);
-        const c1x = p.x + dx / 3 + dy * sw;
-        const c1y = p.y + dy / 3 - dx * sw;
-        const c2x = p.x + 2 * dx / 3 - dy * sw * 0.6;
-        const c2y = p.y + 2 * dy / 3 + dx * sw * 0.6;
+
+        // Increased swirl intensity for loops and kinks
+        // High swirl values create loops perpendicular to the segment
+        const sw = r(-1.2, 1.2);
+
+        const c1x = p.x + dx / 3 + dy * sw * 0.5;
+        const c1y = p.y + dy / 3 - dx * sw * 0.5;
+        const c2x = p.x + 2 * dx / 3 - dy * sw * 0.4;
+        const c2y = p.y + 2 * dy / 3 + dx * sw * 0.4;
         d += ` C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${q.x.toFixed(1)},${q.y.toFixed(1)}`;
       }
+
+      // Close the loop smoothly? 
+      // The user wants "pen stroke", which might not be closed.
+      // But typically it retracts. The current code is an open path `M... C... C...`.
+      // It basically draws a C-shape or O-shape but doesn't explicitly close Z. 
+      // That's fine for "drawn line".
+
       return d;
     }
 
