@@ -102,40 +102,65 @@ document.addEventListener('DOMContentLoaded', () => {
     // Process product images to make white backgrounds transparent
     // (This ensures the swirl line behind the object is visible only outside the object)
     const imgs = document.querySelectorAll('.product-item img');
-    imgs.forEach(img => {
+    imgs.forEach(originalImg => {
+      // Skip if already processed
+      if (originalImg.dataset.processed) return;
+
       const process = () => {
-        if (img.dataset.processed) return;
         try {
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          canvas.width = img.naturalWidth;
-          canvas.height = img.naturalHeight;
-          ctx.drawImage(img, 0, 0);
-          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          const data = imgData.data;
+          // Create a new image object for processing to handle CORS/Tainted Canvas
+          const tempImg = new Image();
+          tempImg.crossOrigin = "Anonymous";
 
-          let hasWhite = false;
-          for (let i = 0; i < data.length; i += 4) {
-            const r = data[i], g = data[i + 1], b = data[i + 2];
-            // If pixel is near white (>240), make it transparent
-            if (r > 240 && g > 240 && b > 240) {
-              data[i + 3] = 0; // Alpha = 0
-              hasWhite = true;
+          tempImg.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = tempImg.naturalWidth;
+            canvas.height = tempImg.naturalHeight;
+            ctx.drawImage(tempImg, 0, 0);
+
+            try {
+              const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+              const data = imgData.data;
+
+              let hasWhite = false;
+              for (let i = 0; i < data.length; i += 4) {
+                const r = data[i], g = data[i + 1], b = data[i + 2];
+                // If pixel is near white (>240), make it transparent
+                if (r > 240 && g > 240 && b > 240) {
+                  data[i + 3] = 0; // Alpha = 0
+                  hasWhite = true;
+                }
+              }
+
+              if (hasWhite) {
+                ctx.putImageData(imgData, 0, 0);
+                originalImg.src = canvas.toDataURL();
+                originalImg.dataset.processed = 'true';
+                // Ensure z-index is correct
+                originalImg.style.position = 'relative';
+                originalImg.style.zIndex = '2';
+              }
+            } catch (canvasError) {
+              console.warn('Canvas security error (tainted):', canvasError);
+              // Fallback: If canvas fails, we can't make it transparent client-side easily.
+              // Just ensure z-index is set so at least the image shows (hiding swirl).
             }
-          }
+          };
 
-          if (hasWhite) {
-            ctx.putImageData(imgData, 0, 0);
-            img.src = canvas.toDataURL();
-            img.dataset.processed = 'true';
-          }
+          tempImg.onerror = (e) => console.warn('Image load error:', e);
+
+          // Force reload to bypass cache and ensure we get the new solid-white image
+          // (Cache checks might return old checkerboard version)
+          const src = originalImg.getAttribute('src').split('?')[0];
+          tempImg.src = src + '?v=' + new Date().getTime();
         } catch (e) {
-          console.warn('Could not process image transparency:', e);
+          console.warn('Could not setup image processing:', e);
         }
       };
 
-      if (img.complete) process();
-      else img.addEventListener('load', process);
+      // Start processing immediately
+      process();
     });
   });
 
