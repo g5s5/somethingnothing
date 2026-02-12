@@ -1,5 +1,5 @@
 /* ============================================
-   Something Nothing — Interactions
+   something//nothing — Interactions
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
