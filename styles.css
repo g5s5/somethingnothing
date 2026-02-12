@@ -179,7 +179,8 @@ ol {
 .filter-bar {
   display: flex;
   gap: var(--space-2);
-  margin-top: 2rem;
+  margin-top: 35vh;
+  /* Push below the initial big logo */
   transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 101;
 }
@@ -272,17 +273,7 @@ ol {
   align-items: center;
 }
 
-.hero-tagline {
-  margin-top: 40vh;
-  /* Reduced from 50vh */
-  /* Push tagline down below the initial big logo */
-  font-size: var(--text-lg);
-  color: var(--color-text-secondary);
-  font-weight: 400;
-  max-width: 600px;
-  text-align: center;
-  transition: opacity 0.5s ease;
-}
+
 
 /* ---------- Grid System ---------- */
 .essentials-grid {
