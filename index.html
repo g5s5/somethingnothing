@@ -25,64 +25,70 @@
 
   <!-- Hero -->
   <section class="hero" id="hero-section">
-    <!-- H1 is removed, logo in header acts as H1 visually initially -->
-    <p class="hero-tagline">A curated directory of intentional essentials.</p>
+    <!-- Filter Bar (Transitions to sticky header on scroll) -->
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="tech">Tech</button>
+      <button class="filter-pill" data-filter="home">Home</button>
+      <button class="filter-pill" data-filter="workspace">Workspace</button>
+      <button class="filter-pill" data-filter="carry">Carry</button>
+    </div>
   </section>
 
   <!-- Main Grid -->
   <main class="container">
-    <div class="essentials-grid">
+    <div class="essentials-grid" id="product-grid">
 
       <!-- Item 1 -->
-      <article class="product-item">
+      <article class="product-item" data-category="tech">
         <img src="assets/speaker.png" alt="Aura Home Speaker" loading="lazy">
         <div class="product-info">Aura Speaker</div>
       </article>
 
       <!-- Item 2 -->
-      <article class="product-item">
+      <article class="product-item" data-category="home">
         <img src="assets/coffee.png" alt="Sora Ceramic Pour-Over" loading="lazy">
         <div class="product-info">Sora Pour-Over</div>
       </article>
 
       <!-- Item 3 -->
-      <article class="product-item">
+      <article class="product-item" data-category="carry">
         <img src="assets/watch.png" alt="Vessel Brass Watch" loading="lazy">
         <div class="product-info">Vessel Watch</div>
       </article>
 
       <!-- Item 4 -->
-      <article class="product-item">
+      <article class="product-item" data-category="workspace">
         <img src="assets/lamp.png" alt="Lumis Desk Lamp" loading="lazy">
         <div class="product-info">Lumis Lamp</div>
       </article>
 
       <!-- Item 5 -->
-      <article class="product-item">
+      <article class="product-item" data-category="carry">
         <img src="assets/wallet.png" alt="Tanner Wallet" loading="lazy">
         <div class="product-info">Tanner Wallet</div>
       </article>
 
       <!-- Item 6 -->
-      <article class="product-item">
+      <article class="product-item" data-category="workspace">
         <img src="assets/keyboard.png" alt="Mechanical Keyboard" loading="lazy">
         <div class="product-info">Input Keyboard</div>
       </article>
 
       <!-- Item 7 -->
-      <article class="product-item">
+      <article class="product-item" data-category="carry">
         <img src="assets/backpack.png" alt="Canvas Pack" loading="lazy">
         <div class="product-info">Wander Pack</div>
       </article>
 
       <!-- Item 8 -->
-      <article class="product-item">
+      <article class="product-item" data-category="home">
         <img src="assets/vase.png" alt="Ceramic Vase" loading="lazy">
         <div class="product-info">Forma Vase</div>
       </article>
 
       <!-- Item 9 (Placeholder to fill grid) -->
-      <article class="product-item">
+      <article class="product-item" data-category="home">
         <img src="assets/coffee.png" alt="Kinto Tumbler" loading="lazy">
         <div class="product-info">Kinto Tumbler</div>
       </article>
