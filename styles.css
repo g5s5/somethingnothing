@@ -111,26 +111,55 @@ ol {
 }
 
 /* ---------- Header ---------- */
+/* ---------- Header ---------- */
 .header {
-  padding: var(--space-4) var(--space-3);
-  position: sticky;
+  position: fixed;
   top: 0;
-  background: var(--color-bg);
+  left: 0;
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-}
-
-.logo {
-  font-size: var(--text-base);
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  pointer-events: none;
 }
 
 .header-nav {
+  pointer-events: auto;
   display: flex;
   gap: var(--space-4);
+}
+
+.logo {
+  pointer-events: auto;
+  font-size: clamp(3rem, 8vw, 7rem);
+  /* Hero Size initially */
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+  text-decoration: none;
+  color: var(--color-text-primary);
+
+  /* Positioning for Hero State (Centered) */
+  position: absolute;
+  top: 40vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center center;
+}
+
+/* Scrolled State (Top Left) */
+.logo.scrolled {
+  font-size: var(--text-base);
+  /* Navbar Size */
+  top: var(--space-4);
+  left: var(--space-6);
+  transform: translate(0, 0);
+  letter-spacing: -0.02em;
 }
 
 .header-nav a {
@@ -147,26 +176,27 @@ ol {
 }
 
 /* ---------- Hero ---------- */
+/* ---------- Hero ---------- */
 .hero {
   padding: var(--space-6) var(--space-3) var(--space-8);
   max-width: 1200px;
-}
-
-.hero h1 {
-  font-size: clamp(3rem, 8vw, 7rem);
-  font-weight: 500;
-  /* Medium weight */
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  text-transform: lowercase;
-  margin-bottom: var(--space-4);
+  min-height: 80vh;
+  /* Taller hero to accommodate scroll */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-tagline {
+  margin-top: 50vh;
+  /* Push tagline down below the initial big logo */
   font-size: var(--text-lg);
   color: var(--color-text-secondary);
   font-weight: 400;
   max-width: 600px;
+  text-align: center;
+  transition: opacity 0.5s ease;
 }
 
 /* ---------- Grid System ---------- */
