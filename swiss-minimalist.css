@@ -136,34 +136,18 @@ ol {
 
 .logo {
   pointer-events: auto;
-  font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-text);
-
-  /* Hero State (Centered) */
-  position: absolute;
-  top: 15vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: max-content;
-
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform-origin: center center;
-}
-
-/* Scrolled State (Top Center) */
-.logo.scrolled {
   position: fixed;
-  font-size: 2.25rem;
-  font-weight: 800;
-  top: var(--space-4);
   left: 50%;
   transform: translateX(-50%);
-  letter-spacing: -0.05em;
+  width: max-content;
+  transform-origin: center center;
   z-index: 102;
+  /* font-size, top set by JS based on scroll */
 }
 
 .logo:hover {
@@ -178,15 +162,9 @@ ol {
   width: 100%;
   height: 80px;
   background: white;
-  opacity: 0;
-  transition: opacity 0.3s ease;
   z-index: 99;
   pointer-events: none;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.header-bg.scrolled {
-  opacity: 1;
+  /* opacity set by JS based on scroll */
 }
 
 .header-nav a {
