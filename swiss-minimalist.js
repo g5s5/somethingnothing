@@ -4,6 +4,28 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ------ Interactive Logo Scroll Transition ------
+  const headerLogo = document.getElementById('header-logo');
+  const headerBg = document.getElementById('header-bg');
+
+  if (headerLogo) {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const triggerPoint = 50;
+
+      if (scrollY > triggerPoint) {
+        headerLogo.classList.add('scrolled');
+        if (headerBg) headerBg.classList.add('scrolled');
+      } else {
+        headerLogo.classList.remove('scrolled');
+        if (headerBg) headerBg.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
   // ------ Category Filter Logic ------
   const filterBar = document.getElementById('filter-bar');
   const productGrid = document.getElementById('product-grid');

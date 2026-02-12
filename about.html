@@ -13,42 +13,36 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">something//nothing</a>
-            <div class="nav-links">
-                <a href="index.html">Discover</a>
-                <a href="about.html" class="active">About</a>
-                <a href="contact.html" class="nav-cta">Get in Touch</a>
-            </div>
-            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
+    <!-- Header -->
+    <div id="header-bg" class="header-bg"></div>
+    <header class="header" id="site-header">
+        <a href="index.html" class="logo" id="header-logo">something//nothing</a>
 
-    <div class="nav-mobile-overlay" id="nav-mobile-overlay">
-        <a href="index.html">Discover</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </div>
+        <nav class="header-nav">
+            <a href="index.html">Discover</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
 
-    <!-- About -->
-    <section class="page-hero"
-        style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center;">
-        <h1>A Love Letter<br>to the Life You're <em>Curating</em></h1>
-        <p style="max-width: 520px; margin: var(--space-6) auto 0; line-height: 1.8;">
+    <!-- Hero -->
+    <section class="hero" id="hero-section"></section>
+
+    <!-- About Content -->
+    <main class="container" style="max-width: 680px; padding: var(--space-6) var(--space-3); text-align: center;">
+        <h1
+            style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; text-transform: uppercase;">
+            A Love Letter<br>to the Life You're <em>Curating</em></h1>
+        <p style="margin: var(--space-6) auto 0; line-height: 1.8; max-width: 520px;">
             something//nothing is about paying attention.
         </p>
-        <p style="max-width: 520px; margin: var(--space-6) auto 0; line-height: 1.8;">
+        <p style="margin: var(--space-4) auto 0; line-height: 1.8; max-width: 520px;">
             To the objects you choose, the spaces you shape, the details
             that make a day feel like yours.
         </p>
-        <p style="max-width: 520px; margin: var(--space-6) auto 0; line-height: 1.8;">
+        <p style="margin: var(--space-4) auto 0; line-height: 1.8; max-width: 520px;">
             To slowing down long enough to notice what matters and letting go of what doesn't.
         </p>
-    </section>
+    </main>
 
 
     <!-- Footer -->
