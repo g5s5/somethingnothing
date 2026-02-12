@@ -4,13 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>something//nothing — Curated Lifestyle Essentials</title>
+  <title>Discover — something//nothing</title>
   <meta name="description"
-    content="Discover curated, design-led lifestyle products. Premium tech, homeware, workspace and style essentials that blend form, function and purpose.">
-  <meta property="og:title" content="something//nothing — Curated Lifestyle Essentials">
-  <meta property="og:description"
-    content="Discover curated, design-led lifestyle products. Premium essentials that blend form, function and purpose.">
-  <meta property="og:type" content="website">
+    content="Discover our full collection of curated lifestyle products across tech, home, workspace, carry and style.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
@@ -20,13 +16,9 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-
-        something//nothing
-      </a>
+      <a href="index.html" class="nav-logo">something//nothing</a>
       <div class="nav-links">
         <a href="index.html" class="active">Discover</a>
-        <a href="browse.html">Browse</a>
         <a href="about.html">About</a>
         <a href="contact.html" class="nav-cta">Get in Touch</a>
       </div>
@@ -38,28 +30,79 @@
     </div>
   </nav>
 
-  <!-- Mobile Nav Overlay -->
   <div class="nav-mobile-overlay" id="nav-mobile-overlay">
     <a href="index.html">Discover</a>
-    <a href="browse.html">Browse</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
 
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <h1>Discover</h1>
+    <p>Every product here is handpicked for its design integrity, lasting quality, and the way it elevates everyday
+      rituals.</p>
+  </section>
+
   <!-- Filters -->
-  <section class="filters" style="margin-top: var(--space-8); margin-bottom: var(--space-4);">
+  <section class="filters">
     <div class="filter-bar" id="filter-bar">
-      <button class="filter-pill active" data-filter="all">All</button>
-      <button class="filter-pill" data-filter="tech">Tech</button>
-      <button class="filter-pill" data-filter="home">Home</button>
-      <button class="filter-pill" data-filter="workspace">Workspace</button>
-      <button class="filter-pill" data-filter="carry">Carry</button>
-      <button class="filter-pill" data-filter="style">Style</button>
+      <button class="filter-pill active" data-filter="all">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        All
+      </button>
+      <button class="filter-pill" data-filter="tech">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+          <line x1="12" y1="18" x2="12" y2="18"></line>
+        </svg>
+        Tech
+      </button>
+      <button class="filter-pill" data-filter="home">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 21h18v-8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8z"></path>
+          <path d="M12 3v8"></path>
+          <path d="M8 8V6a4 4 0 0 1 8 0v2"></path>
+        </svg>
+        Home
+      </button>
+      <button class="filter-pill" data-filter="workspace">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+          <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+          <path d="M2 2l7.586 7.586"></path>
+          <circle cx="11" cy="11" r="2"></circle>
+        </svg>
+        Workspace
+      </button>
+      <button class="filter-pill" data-filter="carry">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        Carry
+      </button>
+      <button class="filter-pill" data-filter="style">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="7"></circle>
+          <polyline points="12 9 12 12 13.5 13.5"></polyline>
+          <path
+            d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 0 1 9.83 1h4.35a2 2 0 0 1 2 1.82l.35 3.83">
+          </path>
+        </svg>
+        Style
+      </button>
     </div>
   </section>
+
+  <!-- Browse Grid -->
   <div class="browse-grid stagger-children" id="product-grid">
 
-    <!-- Speaker -->
     <article class="product-card animate-on-scroll" data-category="tech">
       <div class="card-image">
         <img src="assets/speaker.png" alt="Aura Home Speaker" loading="lazy">
@@ -72,17 +115,12 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="card-meta">
-          <span>Aura</span>
-          <span class="separator"></span>
-          <span>Tech</span>
-        </div>
+        <div class="card-meta"><span>Aura</span><span class="separator"></span><span>Tech</span></div>
         <h3 class="card-title">Home Speaker</h3>
         <span class="card-price">$349</span>
       </div>
     </article>
 
-    <!-- Coffee Set -->
     <article class="product-card animate-on-scroll" data-category="home">
       <div class="card-image">
         <img src="assets/coffee.png" alt="Sora Ceramic Pour-Over Set" loading="lazy">
@@ -95,17 +133,12 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="card-meta">
-          <span>Sora</span>
-          <span class="separator"></span>
-          <span>Home</span>
-        </div>
+        <div class="card-meta"><span>Sora</span><span class="separator"></span><span>Home</span></div>
         <h3 class="card-title">Ceramic Pour-Over Set</h3>
         <span class="card-price">$89</span>
       </div>
     </article>
 
-    <!-- Watch -->
     <article class="product-card animate-on-scroll" data-category="style">
       <div class="card-image">
         <img src="assets/watch.png" alt="Vessel Brass Analog Watch" loading="lazy">
@@ -118,17 +151,12 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="card-meta">
-          <span>Vessel</span>
-          <span class="separator"></span>
-          <span>Style</span>
-        </div>
+        <div class="card-meta"><span>Vessel</span><span class="separator"></span><span>Style</span></div>
         <h3 class="card-title">Brass Analog Watch</h3>
         <span class="card-price">$425</span>
       </div>
     </article>
 
-    <!-- Lamp -->
     <article class="product-card animate-on-scroll" data-category="workspace">
       <div class="card-image">
         <img src="assets/lamp.png" alt="Lumis Articulated Desk Lamp" loading="lazy">
@@ -141,17 +169,12 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="card-meta">
-          <span>Lumis</span>
-          <span class="separator"></span>
-          <span>Workspace</span>
-        </div>
+        <div class="card-meta"><span>Lumis</span><span class="separator"></span><span>Workspace</span></div>
         <h3 class="card-title">Articulated Desk Lamp</h3>
         <span class="card-price">$189</span>
       </div>
     </article>
 
-    <!-- Wallet -->
     <article class="product-card animate-on-scroll" data-category="carry">
       <div class="card-image">
         <img src="assets/wallet.png" alt="Tanner Bifold Wallet" loading="lazy">
@@ -164,17 +187,12 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="card-meta">
-          <span>Tanner</span>
-          <span class="separator"></span>
-          <span>Carry</span>
-        </div>
+        <div class="card-meta"><span>Tanner</span><span class="separator"></span><span>Carry</span></div>
         <h3 class="card-title">Bifold Wallet</h3>
         <span class="card-price">$165</span>
       </div>
     </article>
 
-    <!-- Keyboard -->
     <article class="product-card animate-on-scroll" data-category="workspace">
       <div class="card-image">
         <img src="assets/keyboard.png" alt="Input Club Mechanical Keyboard" loading="lazy">
@@ -187,17 +205,13 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="card-meta">
-          <span>Input Club</span>
-          <span class="separator"></span>
-          <span>Workspace</span>
+        <div class="card-meta"><span>Input Club</span><span class="separator"></span><span>Workspace</span>
         </div>
         <h3 class="card-title">Mechanical Keyboard</h3>
         <span class="card-price">$289</span>
       </div>
     </article>
 
-    <!-- Backpack -->
     <article class="product-card animate-on-scroll" data-category="carry">
       <div class="card-image">
         <img src="assets/backpack.png" alt="Wander Canvas Roll-Top Pack" loading="lazy">
@@ -210,17 +224,12 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="card-meta">
-          <span>Wander</span>
-          <span class="separator"></span>
-          <span>Carry</span>
-        </div>
+        <div class="card-meta"><span>Wander</span><span class="separator"></span><span>Carry</span></div>
         <h3 class="card-title">Canvas Roll-Top Pack</h3>
         <span class="card-price">$245</span>
       </div>
     </article>
 
-    <!-- Vase -->
     <article class="product-card animate-on-scroll" data-category="home">
       <div class="card-image">
         <img src="assets/vase.png" alt="Forma Ceramic Vase" loading="lazy">
@@ -233,44 +242,34 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="card-meta">
-          <span>Forma</span>
-          <span class="separator"></span>
-          <span>Home</span>
-        </div>
+        <div class="card-meta"><span>Forma</span><span class="separator"></span><span>Home</span></div>
         <h3 class="card-title">Ceramic Vase</h3>
         <span class="card-price">$78</span>
       </div>
     </article>
 
   </div>
-  </section>
-
-
-
 
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">something//nothing</a>
-        <p>Curated essentials for intentional living. Timeless essentials that blend form, function and
-          purpose.</p>
+        <p>Curated essentials for intentional living.</p>
       </div>
       <div class="footer-col">
         <h4>Explore</h4>
         <a href="index.html">Discover</a>
-        <a href="browse.html">Browse</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="footer-col">
         <h4>Categories</h4>
-        <a href="browse.html">Tech</a>
-        <a href="browse.html">Home</a>
-        <a href="browse.html">Workspace</a>
-        <a href="browse.html">Carry</a>
-        <a href="browse.html">Style</a>
+        <a href="index.html">Tech</a>
+        <a href="index.html">Home</a>
+        <a href="index.html">Workspace</a>
+        <a href="index.html">Carry</a>
+        <a href="index.html">Style</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
@@ -283,35 +282,26 @@
     <div class="footer-bottom">
       <p>&copy; 2025 something//nothing. All rights reserved.</p>
       <div class="footer-socials">
-        <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <rect width="20" height="20" x="2" y="2" rx="5" />
             <circle cx="12" cy="12" r="5" />
             <circle cx="17.5" cy="6.5" r=".5" fill="currentColor" />
-          </svg>
-        </a>
-        <a href="#" aria-label="Twitter">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
+          </svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <path
               d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-          </svg>
-        </a>
-        <a href="#" aria-label="Pinterest">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
+          </svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" x2="12" y1="17" y2="22" />
             <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1" />
             <polygon points="12 15 17 10 7 10 12 15" />
-          </svg>
-        </a>
+          </svg></a>
       </div>
     </div>
   </footer>
-
-  <!-- Toast Notification -->
-  <div class="toast" id="toast">Thanks for subscribing! 🎉</div>
 
   <script src="script.js"></script>
 </body>

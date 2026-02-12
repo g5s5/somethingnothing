@@ -565,7 +565,7 @@ ol {
 .filters {
   padding: 0 var(--space-6) var(--space-4);
   max-width: var(--max-width);
-  margin: var(--space-8) auto var(--space-4);
+  margin: var(--space-4) auto var(--space-4);
   position: relative;
   z-index: 5;
   width: 100%;
@@ -586,7 +586,10 @@ ol {
 }
 
 .filter-pill {
-  padding: var(--space-2) var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-full);
   font-size: var(--text-sm);
   font-weight: 500;
@@ -1070,7 +1073,7 @@ ol {
 
 /* ---------- About Page ---------- */
 .page-hero {
-  padding: calc(var(--nav-height) + var(--space-20)) var(--space-6) var(--space-16);
+  padding: calc(var(--nav-height) + var(--space-10)) var(--space-6) var(--space-8);
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
