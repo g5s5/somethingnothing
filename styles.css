@@ -120,7 +120,8 @@ ol {
   padding: var(--space-4) var(--space-6);
   z-index: 100;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  /* Align nav to right */
   align-items: flex-start;
   pointer-events: none;
 }
@@ -143,7 +144,8 @@ ol {
 
   /* Positioning for Hero State (Centered) */
   position: absolute;
-  top: 40vh;
+  top: 30vh;
+  /* Reduced from 40vh */
   left: 50%;
   transform: translate(-50%, -50%);
   width: max-content;
@@ -178,9 +180,11 @@ ol {
 /* ---------- Hero ---------- */
 /* ---------- Hero ---------- */
 .hero {
-  padding: var(--space-6) var(--space-3) var(--space-8);
+  padding: var(--space-6) var(--space-3) var(--space-4);
+  /* Reduced bottom padding */
   max-width: 1200px;
-  min-height: 80vh;
+  min-height: 60vh;
+  /* Reduced from 80vh */
   /* Taller hero to accommodate scroll */
   display: flex;
   flex-direction: column;
@@ -189,7 +193,8 @@ ol {
 }
 
 .hero-tagline {
-  margin-top: 50vh;
+  margin-top: 40vh;
+  /* Reduced from 50vh */
   /* Push tagline down below the initial big logo */
   font-size: var(--text-lg);
   color: var(--color-text-secondary);
