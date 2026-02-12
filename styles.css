@@ -160,17 +160,38 @@ ol {
 
 /* Scrolled State (Top Left) */
 /* Scrolled State (Top Left) */
-/* Scrolled State (Top Center) */
+/* Scrolled State (Top Left) */
 .logo.scrolled {
   position: fixed;
   /* Snap to fixed when scrolled */
   font-size: var(--text-base);
   /* Navbar Size */
   top: var(--space-4);
-  left: 50%;
-  transform: translate(-50%, 0);
+  left: var(--space-6);
+  transform: translate(0, 0);
   letter-spacing: -0.02em;
   z-index: 102;
+}
+
+/* Header Center Text (Hidden by default, shown on hover) */
+.header-center-text {
+  position: fixed;
+  top: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 101;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.header-center-text.visible {
+  opacity: 1;
 }
 
 /* Header Background */
