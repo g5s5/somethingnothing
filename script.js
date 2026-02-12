@@ -4,29 +4,24 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ------ Sticky Logo Animation ------
+  // ------ Interactive Logo Transition ------
   const headerLogo = document.getElementById('header-logo');
-  const heroSection = document.getElementById('hero-section');
 
-  if (headerLogo && heroSection) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        // If hero is NOT intersecting (scrolled past), show header logo
-        if (!entry.isIntersecting) {
-          headerLogo.style.opacity = '1';
-          headerLogo.style.pointerEvents = 'auto';
-        } else {
-          headerLogo.style.opacity = '0';
-          headerLogo.style.pointerEvents = 'none';
-        }
-      });
-    }, {
-      root: null,
-      threshold: 0.1, // Trigger when 10% of hero is visible
-      rootMargin: '-100px 0px 0px 0px' // Offset to trigger slightly before/after
-    });
+  if (headerLogo) {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const triggerPoint = 50; // Pixels to scroll before transition starts
 
-    observer.observe(heroSection);
+      if (scrollY > triggerPoint) {
+        headerLogo.classList.add('scrolled');
+      } else {
+        headerLogo.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check
+    handleScroll();
   }
 
 
