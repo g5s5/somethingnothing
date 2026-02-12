@@ -124,7 +124,8 @@ button {
   color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -152,6 +153,7 @@ ul, ol {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -159,8 +161,13 @@ ul, ol {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideDown {
@@ -168,6 +175,7 @@ ul, ol {
     opacity: 0;
     transform: translateY(-8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -179,6 +187,7 @@ ul, ol {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -186,20 +195,32 @@ ul, ol {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity var(--duration-slow) var(--ease-out),
-              transform var(--duration-slow) var(--ease-out);
+    transform var(--duration-slow) var(--ease-out);
 }
 
 .animate-on-scroll.visible {
@@ -208,14 +229,37 @@ ul, ol {
 }
 
 /* stagger children */
-.stagger-children .animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
-.stagger-children .animate-on-scroll:nth-child(2) { transition-delay: 60ms; }
-.stagger-children .animate-on-scroll:nth-child(3) { transition-delay: 120ms; }
-.stagger-children .animate-on-scroll:nth-child(4) { transition-delay: 180ms; }
-.stagger-children .animate-on-scroll:nth-child(5) { transition-delay: 240ms; }
-.stagger-children .animate-on-scroll:nth-child(6) { transition-delay: 300ms; }
-.stagger-children .animate-on-scroll:nth-child(7) { transition-delay: 360ms; }
-.stagger-children .animate-on-scroll:nth-child(8) { transition-delay: 420ms; }
+.stagger-children .animate-on-scroll:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.stagger-children .animate-on-scroll:nth-child(2) {
+  transition-delay: 60ms;
+}
+
+.stagger-children .animate-on-scroll:nth-child(3) {
+  transition-delay: 120ms;
+}
+
+.stagger-children .animate-on-scroll:nth-child(4) {
+  transition-delay: 180ms;
+}
+
+.stagger-children .animate-on-scroll:nth-child(5) {
+  transition-delay: 240ms;
+}
+
+.stagger-children .animate-on-scroll:nth-child(6) {
+  transition-delay: 300ms;
+}
+
+.stagger-children .animate-on-scroll:nth-child(7) {
+  transition-delay: 360ms;
+}
+
+.stagger-children .animate-on-scroll:nth-child(8) {
+  transition-delay: 420ms;
+}
 
 /* ---------- Navigation ---------- */
 .nav {
@@ -298,13 +342,13 @@ ul, ol {
 
 .nav-cta {
   padding: var(--space-2) var(--space-5);
-  background: var(--color-text-primary);
-  color: var(--color-surface) !important;
+  background: var(--color-tag-bg);
+  color: var(--color-text-secondary) !important;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   font-size: var(--text-sm);
   font-weight: 500;
-  transition: transform var(--duration-fast) var(--ease-out),
-              box-shadow var(--duration-fast) var(--ease-out);
+  transition: all var(--duration-fast) var(--ease-out);
 }
 
 .nav-cta::after {
@@ -312,8 +356,9 @@ ul, ol {
 }
 
 .nav-cta:hover {
-  transform: scale(1.04);
-  box-shadow: var(--shadow-md);
+  background: var(--color-bg-warm);
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-border-hover);
 }
 
 /* Mobile hamburger */
@@ -449,7 +494,7 @@ ul, ol {
   border: 1px solid var(--color-border);
   animation: fadeInUp var(--duration-slow) var(--ease-out) 300ms both;
   transition: box-shadow var(--duration-normal) var(--ease-out),
-              border-color var(--duration-normal) var(--ease-out);
+    border-color var(--duration-normal) var(--ease-out);
 }
 
 .hero-subscribe:focus-within {
@@ -481,7 +526,7 @@ ul, ol {
   font-weight: 600;
   white-space: nowrap;
   transition: transform var(--duration-fast) var(--ease-out),
-              background var(--duration-fast) var(--ease-out);
+    background var(--duration-fast) var(--ease-out);
 }
 
 .hero-subscribe button:hover {
@@ -590,7 +635,7 @@ ul, ol {
   align-items: center;
   gap: var(--space-2);
   transition: color var(--duration-fast) var(--ease-out),
-              gap var(--duration-fast) var(--ease-out);
+    gap var(--duration-fast) var(--ease-out);
 }
 
 .section-header .view-all:hover {
@@ -617,8 +662,8 @@ ul, ol {
   overflow: hidden;
   border: 1px solid var(--color-border);
   transition: transform var(--duration-normal) var(--ease-out),
-              box-shadow var(--duration-normal) var(--ease-out),
-              border-color var(--duration-normal) var(--ease-out);
+    box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -804,7 +849,7 @@ ul, ol {
   font-size: var(--text-sm);
   font-weight: 600;
   transition: transform var(--duration-fast) var(--ease-out),
-              box-shadow var(--duration-fast) var(--ease-out);
+    box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .btn-primary:hover {
@@ -1080,7 +1125,7 @@ ul, ol {
   padding: var(--space-8);
   border: 1px solid var(--color-border);
   transition: transform var(--duration-normal) var(--ease-out),
-              box-shadow var(--duration-normal) var(--ease-out);
+    box-shadow var(--duration-normal) var(--ease-out);
 }
 
 .value-card:hover {
@@ -1137,7 +1182,7 @@ ul, ol {
   padding: var(--space-6);
   border: 1px solid var(--color-border);
   transition: transform var(--duration-normal) var(--ease-out),
-              box-shadow var(--duration-normal) var(--ease-out);
+    box-shadow var(--duration-normal) var(--ease-out);
 }
 
 .contact-item:hover {
@@ -1218,7 +1263,7 @@ ul, ol {
   font-size: var(--text-sm);
   font-weight: 600;
   transition: transform var(--duration-fast) var(--ease-out),
-              box-shadow var(--duration-fast) var(--ease-out);
+    box-shadow var(--duration-fast) var(--ease-out);
   align-self: flex-start;
 }
 
