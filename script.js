@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ------ Interactive Logo Transition ------
   const headerLogo = document.getElementById('header-logo');
+  const headerBg = document.getElementById('header-bg');
 
   if (headerLogo) {
     const handleScroll = () => {
@@ -14,8 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (scrollY > triggerPoint) {
         headerLogo.classList.add('scrolled');
+        if (headerBg) headerBg.classList.add('scrolled');
       } else {
         headerLogo.classList.remove('scrolled');
+        if (headerBg) headerBg.classList.remove('scrolled');
       }
     };
 
