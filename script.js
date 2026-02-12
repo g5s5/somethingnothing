@@ -35,4 +35,32 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '1';
   });
 
+  // ------ Dynamic Header Text on Hover ------
+  const headerCenterText = document.getElementById('header-center-text');
+  const productItems = document.querySelectorAll('.product-item');
+
+  if (headerCenterText && productItems.length > 0) {
+    productItems.forEach(item => {
+      const info = item.querySelector('.product-info');
+      if (info) {
+        const productText = info.textContent;
+
+        item.addEventListener('mouseenter', () => {
+          headerCenterText.textContent = productText;
+          headerCenterText.classList.add('visible');
+        });
+
+        item.addEventListener('mouseleave', () => {
+          headerCenterText.classList.remove('visible');
+          // Optional: clear text after transition
+          setTimeout(() => {
+            if (!headerCenterText.classList.contains('visible')) {
+              headerCenterText.textContent = '';
+            }
+          }, 300);
+        });
+      }
+    });
+  }
+
 });
