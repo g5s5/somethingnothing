@@ -1,36 +1,11 @@
 /* ============================================
-   something//nothing — Interactions
+   something//nothing — Swiss Minimalist Interactions
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ------ Interactive Logo & Filter Transition ------
-  const headerLogo = document.getElementById('header-logo');
-  const headerBg = document.getElementById('header-bg');
-  const filterBar = document.getElementById('filter-bar');
-
-  if (headerLogo) {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const triggerPoint = 50; // Pixels to scroll before transition starts
-
-      if (scrollY > triggerPoint) {
-        headerLogo.classList.add('scrolled');
-        if (headerBg) headerBg.classList.add('scrolled');
-        if (filterBar) filterBar.classList.add('scrolled');
-      } else {
-        headerLogo.classList.remove('scrolled');
-        if (headerBg) headerBg.classList.remove('scrolled');
-        if (filterBar) filterBar.classList.remove('scrolled');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // Initial check
-    handleScroll();
-  }
-
   // ------ Category Filter Logic ------
+  const filterBar = document.getElementById('filter-bar');
   const productGrid = document.getElementById('product-grid');
 
   if (filterBar && productGrid) {

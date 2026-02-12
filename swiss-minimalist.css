@@ -112,99 +112,66 @@ ol {
 
 /* ---------- Header ---------- */
 .header {
-  position: absolute;
-  /* Changed from fixed so logo scrolls with page */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: var(--space-4) var(--space-6);
+  padding: 0 var(--space-6);
+  height: 64px;
   z-index: 100;
   display: flex;
-  justify-content: flex-end;
-  /* Align nav to right */
-  align-items: flex-start;
-  pointer-events: none;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .header-nav {
-  pointer-events: auto;
-  position: fixed;
-  /* Keep nav accessible */
-  top: calc(var(--space-4) + 11px);
-  /* Adjusted for larger logo alignment */
-  right: var(--space-6);
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   gap: var(--space-4);
-  z-index: 105;
 }
 
 .logo {
-  pointer-events: auto;
-  font-size: clamp(3rem, 8vw, 7rem);
-  /* Hero Size initially - Reverted */
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--color-text-primary);
-
-  /* Positioning for Hero State (Centered) */
-  position: absolute;
-  top: 30vh;
-  /* Reduced from 40vh */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: max-content;
-
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform-origin: center center;
+  color: var(--color-text);
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
 }
 
-/* Scrolled State (Top Center) */
-.logo.scrolled {
-  position: fixed;
-  /* Snap to fixed when scrolled */
-  font-size: 2.25rem;
-  /* Logo Size in sticky state - Increased */
-  font-weight: 800;
-  /* Kept bolder for sticky state */
-  top: var(--space-4);
-  left: 50%;
-  transform: translateX(-50%);
-  letter-spacing: -0.05em;
-  z-index: 102;
+.logo:hover {
+  opacity: 0.6;
 }
 
-/* Category Filters */
+/* Category Filters — always in header */
 .filter-bar {
   display: flex;
   gap: var(--space-2);
-  margin-top: 35vh;
-  /* Push below the initial big logo */
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  z-index: 101;
-}
-
-.filter-bar.scrolled {
-  position: fixed;
-  top: var(--space-4);
-  left: var(--space-6);
-  margin-top: 0;
-  transform: translateY(11px);
-  /* Align with nav links and larger logo */
+  align-items: center;
 }
 
 .filter-pill {
   background: none;
   border: 1px solid var(--color-border);
-  padding: 0.4rem 1rem;
+  padding: 0.35rem 0.85rem;
   font-size: var(--text-xs);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: var(--color-text-secondary);
+  color: #888;
 }
 
 .filter-pill:hover {
@@ -218,31 +185,9 @@ ol {
   border-color: var(--color-text);
 }
 
-/* Hide filters on mobile when scrolled if too crowded (optional) */
-@media (max-width: 600px) {
-  .filter-bar.scrolled {
-    display: none;
-  }
-}
-
-
-/* Header Background */
+/* Header Background — no longer needed (header is always fixed with bg) */
 .header-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: white;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 99;
-  pointer-events: none;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.header-bg.scrolled {
-  opacity: 1;
+  display: none;
 }
 
 .header-nav a {
@@ -258,19 +203,17 @@ ol {
   opacity: 0.6;
 }
 
-/* ---------- Hero ---------- */
-/* ---------- Hero ---------- */
+/* ---------- Hero (spacer) ---------- */
 .hero {
-  padding: var(--space-6) var(--space-3) var(--space-4);
-  /* Reduced bottom padding */
-  max-width: 1200px;
-  min-height: 60vh;
-  /* Reduced from 80vh */
-  /* Taller hero to accommodate scroll */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 64px;
+  /* matches header height */
+}
+
+/* Hide category pills on small screens, show hamburger-style later */
+@media (max-width: 600px) {
+  .filter-bar {
+    display: none;
+  }
 }
 
 

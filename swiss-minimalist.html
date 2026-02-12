@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>something//nothing — Curated Essentials</title>
   <meta name="description" content="A curated directory of intentional essentials.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="swiss-minimalist.css">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 
@@ -15,6 +15,15 @@
   <!-- Header -->
   <div id="header-bg" class="header-bg"></div>
   <header class="header" id="site-header">
+    <div class="header-left">
+      <div class="filter-bar" id="filter-bar">
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="carry">Carry</button>
+        <button class="filter-pill" data-filter="home">Home</button>
+        <button class="filter-pill" data-filter="tech">Tech</button>
+      </div>
+    </div>
+
     <a href="index.html" class="logo" id="header-logo">something//nothing</a>
 
     <nav class="header-nav">
@@ -23,74 +32,47 @@
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="hero-section">
-    <!-- Filter Bar (Transitions to sticky header on scroll) -->
-    <div class="filter-bar" id="filter-bar">
-      <button class="filter-pill active" data-filter="all">All</button>
-      <button class="filter-pill" data-filter="tech">Tech</button>
-      <button class="filter-pill" data-filter="home">Home</button>
-      <button class="filter-pill" data-filter="workspace">Workspace</button>
-      <button class="filter-pill" data-filter="carry">Carry</button>
-    </div>
-  </section>
+  <!-- Hero (spacer for fixed header) -->
+  <section class="hero" id="hero-section"></section>
 
   <!-- Main Grid -->
   <main class="container">
     <div class="essentials-grid" id="product-grid">
 
       <!-- Item 1 -->
-      <article class="product-item" data-category="tech">
-        <img src="assets/speaker.png" alt="Aura Home Speaker" loading="lazy">
-        <div class="product-info">Aura Speaker</div>
+      <article class="product-item" data-category="carry">
+        <img src="assets/tudor-bb58.png" alt="Tudor Black Bay 58" loading="lazy">
+        <div class="product-info">Tudor BB58</div>
       </article>
 
       <!-- Item 2 -->
-      <article class="product-item" data-category="home">
-        <img src="assets/coffee.png" alt="Sora Ceramic Pour-Over" loading="lazy">
-        <div class="product-info">Sora Pour-Over</div>
+      <article class="product-item" data-category="carry">
+        <img src="assets/bottega-wallet.png" alt="Bottega Veneta Bifold Wallet" loading="lazy">
+        <div class="product-info">Bottega Veneta Wallet</div>
       </article>
 
       <!-- Item 3 -->
-      <article class="product-item" data-category="carry">
-        <img src="assets/watch.png" alt="Vessel Brass Watch" loading="lazy">
-        <div class="product-info">Vessel Watch</div>
+      <article class="product-item" data-category="home">
+        <img src="assets/jwda-lamp.png" alt="JWDA Table Lamp" loading="lazy">
+        <div class="product-info">JWDA Lamp</div>
       </article>
 
       <!-- Item 4 -->
-      <article class="product-item" data-category="workspace">
-        <img src="assets/lamp.png" alt="Lumis Desk Lamp" loading="lazy">
-        <div class="product-info">Lumis Lamp</div>
+      <article class="product-item" data-category="home">
+        <img src="assets/dracaena-plant.png" alt="Dracaena Plant" loading="lazy">
+        <div class="product-info">Dracaena Plant</div>
       </article>
 
       <!-- Item 5 -->
-      <article class="product-item" data-category="carry">
-        <img src="assets/wallet.png" alt="Tanner Wallet" loading="lazy">
-        <div class="product-info">Tanner Wallet</div>
+      <article class="product-item" data-category="tech">
+        <img src="assets/oneblade-razor.png" alt="OneBlade Razor" loading="lazy">
+        <div class="product-info">OneBlade Razor</div>
       </article>
 
       <!-- Item 6 -->
-      <article class="product-item" data-category="workspace">
-        <img src="assets/keyboard.png" alt="Mechanical Keyboard" loading="lazy">
-        <div class="product-info">Input Keyboard</div>
-      </article>
-
-      <!-- Item 7 -->
       <article class="product-item" data-category="carry">
-        <img src="assets/backpack.png" alt="Canvas Pack" loading="lazy">
-        <div class="product-info">Wander Pack</div>
-      </article>
-
-      <!-- Item 8 -->
-      <article class="product-item" data-category="home">
-        <img src="assets/vase.png" alt="Ceramic Vase" loading="lazy">
-        <div class="product-info">Forma Vase</div>
-      </article>
-
-      <!-- Item 9 (Placeholder to fill grid) -->
-      <article class="product-item" data-category="home">
-        <img src="assets/coffee.png" alt="Kinto Tumbler" loading="lazy">
-        <div class="product-info">Kinto Tumbler</div>
+        <img src="assets/sandro-coat.png" alt="Sandro Wool Coat" loading="lazy">
+        <div class="product-info">Sandro Wool Coat</div>
       </article>
 
     </div>
@@ -109,7 +91,7 @@
   </footer>
 
   <!-- Script for Logo Transition -->
-  <script src="script.js"></script>
+  <script src="swiss-minimalist.js"></script>
 </body>
 
 </html>
