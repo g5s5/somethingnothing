@@ -253,6 +253,11 @@ ol {
   padding: 15%;
 }
 
+.globe-item img {
+  object-fit: contain;
+  padding: 10%;
+}
+
 /* Tooltip/Label style on hover (optional enhancement for "directory" feel) */
 .product-info {
   position: absolute;

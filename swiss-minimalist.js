@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const lerp = (a, b, t) => a + (b - a) * t;
     const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
+    const nav = document.querySelector('.header-nav');
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
       // progress: 0 at top, 1 at SCROLL_END
@@ -47,12 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
       if (headerBg) {
         headerBg.style.opacity = t;
       }
+
+      // Hide navigation on mobile on scroll to avoid overlap
+      if (nav) {
+        if (window.innerWidth < 768) {
+          // Fade out quickly: fully hidden by 60px scroll
+          const navOpacity = clamp(1 - (scrollY / 60), 0, 1);
+          nav.style.opacity = navOpacity;
+          nav.style.pointerEvents = navOpacity < 0.1 ? 'none' : 'auto';
+        } else {
+          nav.style.opacity = '1';
+          nav.style.pointerEvents = 'auto';
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', () => {
       // Recalculate responsive start size on resize
       // (re-runs handleScroll with fresh values implicitly)
+      handleScroll();
     });
     handleScroll(); // set initial state
   }
