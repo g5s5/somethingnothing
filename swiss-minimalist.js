@@ -100,4 +100,104 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '1';
   });
 
+  // ------ Swirly Pen Stroke Hover Effect ------
+  (function initSwirlHover() {
+    const NS = 'http://www.w3.org/2000/svg';
+    const items = document.querySelectorAll('.product-item');
+
+    function r(a, b) { return a + Math.random() * (b - a); }
+
+    // Generate a random swirly, organic pen-stroke path
+    function makeSwirlPath(w, h) {
+      const cx = w / 2, cy = h / 2;
+
+      // Generate 6-9 points spread around the card
+      // (the transparent image will naturally mask the center)
+      const pts = [];
+      const n = 6 + Math.floor(Math.random() * 4);
+      for (let i = 0; i < n; i++) {
+        // Distribute around card — bias toward edges but allow mid-range
+        const angle = (i / n) * Math.PI * 2 + r(-0.4, 0.4);
+        const radius = r(0.35, 0.55) * Math.min(w, h);
+        const x = cx + Math.cos(angle) * radius * (w / Math.min(w, h));
+        const y = cy + Math.sin(angle) * radius * (h / Math.min(w, h));
+        pts.push({
+          x: Math.max(-w * 0.05, Math.min(w * 1.05, x)),
+          y: Math.max(-h * 0.05, Math.min(h * 1.05, y)),
+          a: angle
+        });
+      }
+
+      // Sort by angle for cohesive flow
+      pts.sort((a, b) => a.a - b.a);
+
+      // Build cubic bezier path
+      let d = `M${pts[0].x.toFixed(1)},${pts[0].y.toFixed(1)}`;
+      for (let i = 1; i < pts.length; i++) {
+        const p = pts[i - 1], q = pts[i];
+        const dx = q.x - p.x, dy = q.y - p.y;
+        const sw = r(-0.5, 0.5);
+        const c1x = p.x + dx / 3 + dy * sw;
+        const c1y = p.y + dy / 3 - dx * sw;
+        const c2x = p.x + 2 * dx / 3 - dy * sw * 0.6;
+        const c2y = p.y + 2 * dy / 3 + dx * sw * 0.6;
+        d += ` C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${q.x.toFixed(1)},${q.y.toFixed(1)}`;
+      }
+      return d;
+    }
+
+    items.forEach(item => {
+      let svg = null;
+      const container = item.querySelector('.image-container');
+      if (!container) return;
+
+      item.addEventListener('mouseenter', () => {
+        if (svg) { svg.remove(); svg = null; }
+
+        const w = container.offsetWidth;
+        const h = container.offsetHeight;
+
+        // Create SVG — placed inside image-container, behind the <img>
+        svg = document.createElementNS(NS, 'svg');
+        svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+        svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;';
+
+        // Create the swirl path (no clip-path — transparent PNG masks naturally)
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', makeSwirlPath(w, h));
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', '#000');
+        path.setAttribute('stroke-width', '2');
+        path.setAttribute('stroke-linecap', 'round');
+        path.setAttribute('stroke-linejoin', 'round');
+        svg.appendChild(path);
+
+        container.appendChild(svg);
+
+        // Animate draw-in via stroke-dashoffset
+        const len = path.getTotalLength();
+        path.style.strokeDasharray = len;
+        path.style.strokeDashoffset = len;
+        requestAnimationFrame(() => {
+          path.style.transition = 'stroke-dashoffset 0.8s cubic-bezier(0.4,0,0.2,1)';
+          path.style.strokeDashoffset = '0';
+        });
+      });
+
+      item.addEventListener('mouseleave', () => {
+        if (!svg) return;
+        const path = svg.querySelector('path');
+        if (!path) { svg.remove(); svg = null; return; }
+
+        const len = path.getTotalLength();
+        path.style.transition = 'stroke-dashoffset 0.6s cubic-bezier(0.4,0,0.2,1)';
+        path.style.strokeDashoffset = len;
+
+        const ref = svg;
+        svg = null;
+        setTimeout(() => ref.remove(), 620);
+      });
+    });
+  })();
+
 });
