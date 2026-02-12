@@ -2,30 +2,7 @@
    something//nothing — Interactions
    ============================================ */
 
-const switchTheme = (themeName) => {
-  const link = document.getElementById('main-stylesheet');
-  const tagline = document.getElementById('hero-tagline');
-
-  if (themeName === 'swiss') {
-    link.href = 'swiss-minimalist.css';
-    if (tagline) tagline.style.display = 'none';
-    localStorage.setItem('sn-theme', 'swiss');
-  } else {
-    link.href = 'japandi.css';
-    if (tagline) {
-      tagline.style.display = 'block';
-      tagline.innerText = 'A collection of quiet essentials.';
-    }
-    localStorage.setItem('sn-theme', 'japandi');
-  }
-};
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Load saved theme
-  const savedTheme = localStorage.getItem('sn-theme');
-  if (savedTheme) {
-    switchTheme(savedTheme);
-  }
 
   // ------ Interactive Logo & Filter Transition ------
   const headerLogo = document.getElementById('header-logo');
@@ -96,6 +73,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
-
-// Expose switchTheme to window for onclick handlers
-window.switchTheme = switchTheme;
