@@ -102,6 +102,7 @@ body {
   color: var(--color-text-primary);
   background-color: var(--color-bg);
   overflow-x: hidden;
+  padding-top: var(--nav-height);
 }
 
 img {
@@ -464,7 +465,8 @@ ol {
   animation: fadeInUp var(--duration-slow) var(--ease-out) 100ms both;
 }
 
-.hero h1 em {
+.hero h1 em,
+.page-hero h1 em {
   font-style: italic;
   color: var(--color-accent);
 }
@@ -561,9 +563,12 @@ ol {
 
 /* ---------- Category Filters ---------- */
 .filters {
-  padding: 0 var(--space-6) var(--space-10);
+  padding: 0 var(--space-6) var(--space-4);
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: var(--space-8) auto var(--space-4);
+  position: relative;
+  z-index: 5;
+  width: 100%;
 }
 
 .filter-bar {
@@ -648,8 +653,11 @@ ol {
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: minmax(200px, auto);
+  grid-auto-rows: minmax(280px, auto);
   gap: var(--space-5);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6) var(--space-20);
 }
 
 /* ---------- Product Card ---------- */
@@ -668,7 +676,6 @@ ol {
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover);
   border-color: var(--color-border-hover);
 }
