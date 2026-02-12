@@ -126,8 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
               let hasWhite = false;
               for (let i = 0; i < data.length; i += 4) {
                 const r = data[i], g = data[i + 1], b = data[i + 2];
-                // If pixel is near white (>240), make it transparent
-                if (r > 240 && g > 240 && b > 240) {
+                // If pixel is near white (>210), make it transparent
+                if (r > 210 && g > 210 && b > 210) {
                   data[i + 3] = 0; // Alpha = 0
                   hasWhite = true;
                 }
