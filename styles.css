@@ -160,14 +160,15 @@ ol {
 
 /* Scrolled State (Top Left) */
 /* Scrolled State (Top Left) */
+/* Scrolled State (Top Center) */
 .logo.scrolled {
   position: fixed;
   /* Snap to fixed when scrolled */
   font-size: var(--text-base);
   /* Navbar Size */
   top: var(--space-4);
-  left: var(--space-6);
-  transform: translate(0, 0);
+  left: 50%;
+  transform: translate(-50%, 0);
   letter-spacing: -0.02em;
   z-index: 102;
 }
