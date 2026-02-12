@@ -138,10 +138,10 @@ ol {
 
 .logo {
   pointer-events: auto;
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(4rem, 12vw, 12rem);
   /* Hero Size initially */
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-weight: 800;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-text-primary);
@@ -162,7 +162,7 @@ ol {
 .logo.scrolled {
   position: fixed;
   /* Snap to fixed when scrolled */
-  font-size: var(--text-base);
+  font-size: 1.25rem;
   /* Navbar Size */
   top: var(--space-4);
   left: 50%;
