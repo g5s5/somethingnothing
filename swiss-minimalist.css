@@ -261,6 +261,12 @@ ol {
   transform: scale(1.05);
 }
 
+/* Watch image — smaller within its container */
+.watch-item img {
+  object-fit: contain;
+  padding: 15%;
+}
+
 /* Tooltip/Label style on hover (optional enhancement for "directory" feel) */
 .product-info {
   position: absolute;
