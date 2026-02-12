@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .icon-text { fill: #000000; }
+    @media (prefers-color-scheme: dark) {
+      .icon-text { fill: #FFFFFF; }
+    }
+  </style>
   <rect width="64" height="64" rx="12" fill="none"/>
-  <text x="32" y="32" font-family="'Noto Sans JP', sans-serif" font-weight="bold" font-size="48" text-anchor="middle" dominant-baseline="central" fill="#000000">間</text>
+  <text x="32" y="32" class="icon-text" font-family="'Noto Sans JP', sans-serif" font-weight="bold" font-size="48" text-anchor="middle" dominant-baseline="central">間</text>
 </svg>
