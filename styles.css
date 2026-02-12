@@ -138,10 +138,10 @@ ol {
 
 .logo {
   pointer-events: auto;
-  font-size: clamp(4rem, 12vw, 12rem);
-  /* Hero Size initially */
-  font-weight: 800;
-  letter-spacing: -0.05em;
+  font-size: clamp(3rem, 8vw, 7rem);
+  /* Hero Size initially - Reverted */
+  font-weight: 700;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-text-primary);
@@ -164,10 +164,12 @@ ol {
   /* Snap to fixed when scrolled */
   font-size: 1.5625rem;
   /* Navbar Size (+25%) */
+  font-weight: 800;
+  /* Kept bolder for sticky state */
   top: var(--space-4);
   left: 50%;
   transform: translateX(-50%);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
   z-index: 102;
 }
 
