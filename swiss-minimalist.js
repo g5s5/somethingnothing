@@ -98,6 +98,45 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.style.transition = 'opacity 0.6s ease';
   requestAnimationFrame(() => {
     document.body.style.opacity = '1';
+
+    // Process product images to make white backgrounds transparent
+    // (This ensures the swirl line behind the object is visible only outside the object)
+    const imgs = document.querySelectorAll('.product-item img');
+    imgs.forEach(img => {
+      const process = () => {
+        if (img.dataset.processed) return;
+        try {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          ctx.drawImage(img, 0, 0);
+          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const data = imgData.data;
+
+          let hasWhite = false;
+          for (let i = 0; i < data.length; i += 4) {
+            const r = data[i], g = data[i + 1], b = data[i + 2];
+            // If pixel is near white (>240), make it transparent
+            if (r > 240 && g > 240 && b > 240) {
+              data[i + 3] = 0; // Alpha = 0
+              hasWhite = true;
+            }
+          }
+
+          if (hasWhite) {
+            ctx.putImageData(imgData, 0, 0);
+            img.src = canvas.toDataURL();
+            img.dataset.processed = 'true';
+          }
+        } catch (e) {
+          console.warn('Could not process image transparency:', e);
+        }
+      };
+
+      if (img.complete) process();
+      else img.addEventListener('load', process);
+    });
   });
 
   // ------ Swirly Pen Stroke Hover Effect ------
