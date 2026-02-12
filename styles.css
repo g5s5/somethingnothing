@@ -162,8 +162,8 @@ ol {
 .logo.scrolled {
   position: fixed;
   /* Snap to fixed when scrolled */
-  font-size: 1.25rem;
-  /* Navbar Size */
+  font-size: 1.5625rem;
+  /* Navbar Size (+25%) */
   top: var(--space-4);
   left: 50%;
   transform: translateX(-50%);
