@@ -140,7 +140,7 @@ ol {
   pointer-events: auto;
   font-size: clamp(3rem, 8vw, 7rem);
   /* Hero Size initially */
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
   text-decoration: none;
